@@ -17,7 +17,7 @@ def get_int_input(label):
         return float(value.replace(",","").strip())
     except:
          st.warning(f"Please enter a valid number for {label}.")
-        st.stop()
+         st.stop()
 
 # User Inputs
 from_home = get_int_input('From Home (Reach from Home Page)')
