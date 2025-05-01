@@ -12,7 +12,7 @@ st.write('The model predicts the number of impressions based on various features
 
 # Function to take number input properly
 def get_int_input(label):
-    value = st.text_input(label, value='0')
+    value = st.text_input(label)
     try:
         return float(value.replace(",","").strip())
     except:
