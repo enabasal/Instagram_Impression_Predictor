@@ -14,9 +14,10 @@ st.write('The model predicts the number of impressions based on various features
 def get_int_input(label):
     value = st.text_input(label, value='0')
     try:
-        return int(value)
+        return float(value.replace(",","").strip())
     except:
-        return 0
+         st.warning(f"Please enter a valid number for {label}.")
+        st.stop()
 
 # User Inputs
 from_home = get_int_input('From Home (Reach from Home Page)')
