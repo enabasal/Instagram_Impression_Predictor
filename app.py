@@ -6,7 +6,7 @@ import joblib
 model = joblib.load('best_model.pkl')
 scaler = joblib.load('scaler.pkl')
 
-st.title('📈 Instagram Post Impressions Predictor')
+st.title('Instagram Post Impressions Predictor')
 st.write('Fill in the post details below to predict total impressions.Please enter only numeric values in the input fields.')
 st.write('The model predicts the number of impressions based on various features of your Instagram post.')
 
@@ -38,19 +38,19 @@ has_popular_hashtag = st.selectbox('Has Popular Hashtag?', ['Yes', 'No'])
 has_popular_hashtag_value = 1 if has_popular_hashtag == 'Yes' else 0
 
 # Create a button to make prediction
-if st.button('🚀 Predict Impressions'):
+if st.button('Predict Impressions'):
     input_data = np.array([[from_home, from_hashtags, from_explore, from_other,
                             saves, comments, shares, likes, profile_visits,
                             follows, caption_length, hashtags_count, has_popular_hashtag_value]])
 
     # Scale the input data
     input_data_scaled = scaler.transform(input_data)
-
+ 
     # Make the prediction
     prediction = model.predict(input_data_scaled)
     predicted_impressions = int(prediction[0])
 
-    st.success(f"🎯 Predicted Impressions: {predicted_impressions}")
+    st.success(f"Predicted Impressions: {predicted_impressions}")
 
     # Categorize performance based on predicted impressions
     if predicted_impressions <= 500:
